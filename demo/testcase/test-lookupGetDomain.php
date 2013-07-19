@@ -12,7 +12,6 @@ if (isSet($_POST['function'])) {
 		"func" => $_POST["function"],
 		"data" => array (
 			"cookie" => $_POST["cookie"],
-			"bypass" => $_POST["bypass"],
 			"registrant_ip" => $_POST["registrant_ip"],
 			"type" => $_POST["type"],
 			"limit" => $_POST["limit"],
@@ -33,7 +32,7 @@ if (isSet($_POST['function'])) {
 
 	// Print out the results
 	echo (" In: ". $callstring ."<br>");
-	echo ("Out: ". $osrsHandler->resultFormatted);
+	echo ("Out: ". $osrsHandler->response['Formatted']);
 
 } else {
 	// Format
@@ -63,16 +62,13 @@ if (isSet($_POST['function'])) {
 			<td width="100%"><span class="headLine">cookie </span> <input type="text" name="cookie" value="" class="frontBox"></td>
 		</tr>
 		<tr>
-			<td width="100%"><span class="headLine">bypass domain </span> <input type="text" name="bypass" value="" class="frontBox"> <small>In case that your provider allows you to use this. Cookie not required.</small></td>
-		</tr>
-				<tr>
 			<td width="100%"><span class="headLine">domain</span> <input type="text" name="domain" value="" class="frontBox"></td>
 		</tr>
 		<tr>
 			<td width="100%"><span class="headLine">registrant_ip </span> <input type="text" name="registrant_ip" value="" class="frontBox"></td>
 		</tr>
 		<tr>
-			<td width="100%"><span class="headLine">type </span> <input type="text" name="type" value="" class="frontBox"></td>
+			<td width="100%"><span class="headLine">*type </span> <input type="text" name="type" value="" class="frontBox"></td>
 		</tr>
 		<tr>
 			<td width="100%"><span class="headLine">limit </span> <input type="text" name="limit" value="" class="frontBox"></td>

@@ -64,6 +64,19 @@ class openSRS_base {
 		}
 	}
 
+	public function call($format, $cmd) {
+
+		$xmlCMD = $this->_opsHandler->encode($cmd);					// Flip Array to XML
+		$XMLresult = $this->send_cmd($xmlCMD);						// Send XML
+		$arrayResult = $this->_opsHandler->decode($XMLresult);		// Flip XML to Array
+
+		return array(
+		    "FullRaw" => $arrayResult,
+		    "Raw" => $arrayResult['attributes'],
+		    "FullFormatted" => convertArray2Formatted ($format, $arrayResult),
+		    "Formatted" => convertArray2Formatted ($format, $arrayResult['attributes'])
+		);
+	}
 	/**
 	 * Method to send a command to the server
 	 *
@@ -254,4 +267,8 @@ class openSRS_base {
 		$this->close_socket();
 		return $buf;
 	}
+
+
+
+
 }
