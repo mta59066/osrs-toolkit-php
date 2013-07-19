@@ -20,22 +20,23 @@ class lookupGetDomain extends openSRS_base {
 	}
 
 	private function _validateObject (){
-		$pass = true;
+		
 		if(empty($this->_dataObject->data->cookie) && empty($this->_dataObject->data->domain)) {
 		    trigger_error ("oSRS Error - cookie / bypass is not defined.", E_USER_WARNING);
-		    $pass = false;
+		    return false;
 		}
 
 		if(empty($this->_dataObject->data->type)) {
 			trigger_error ("oSRS Error - type required.", E_USER_WARNING);
-			$pass = false;
+			return false;
 		}
-		return $pass;
+		return true;
 	}
 
 	private function _processRequest (){
 
-		if (!$this->_validateObject()) {
+		$is_valid = $this->_validateObject();
+		if (empty($is_valid)) {
 			trigger_error ("oSRS Error - Failed validation.", E_USER_WARNING);
 		};
 

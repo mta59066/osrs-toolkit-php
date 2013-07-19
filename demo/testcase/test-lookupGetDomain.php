@@ -12,13 +12,13 @@ if (isSet($_POST['function'])) {
 		"func" => $_POST["function"],
 		"data" => array (
 			"cookie" => $_POST["cookie"],
+			"domain" => $_POST["domain"],
 			"registrant_ip" => $_POST["registrant_ip"],
 			"type" => $_POST["type"],
 			"limit" => $_POST["limit"],
 			"page" => $_POST["page"],
 			"max_to_expiry" => $_POST["max_to_expiry"],
 			"min_to_expiry" => $_POST["min_to_expiry"],
-			"domain" => $_POST["domain"],
 		)
 	);
 	

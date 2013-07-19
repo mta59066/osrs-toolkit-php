@@ -67,10 +67,9 @@ class openSRS_base {
 	/**
 	 * Method to send a command to the server
 	 *
-	 * @param 	string 	$format Encode format json/yaml
-	 * @param   array   $cmd    Contains request Array Hash
-	 *
-	 * @return 	array 	API response 
+	 * @param    string $format Encode format json/yaml
+	 * @param    array  $cmd    Contains request Array Hash
+	 * @return   array          API response 
 	 *  
 	 * @since   3.5
 	 */
