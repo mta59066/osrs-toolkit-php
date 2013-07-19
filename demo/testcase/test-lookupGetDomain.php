@@ -4,7 +4,7 @@ if (isSet($_POST['function'])) {
 	require_once dirname(__FILE__) . "/../../opensrs/spyc.php";
 
 	// Form data capture
-	$formFormat = $_POST["format"];
+	$formFormat = $_POST['format'];
 
 	// Put the data to the Formatted array
 	$callstring = "";
@@ -31,8 +31,9 @@ if (isSet($_POST['function'])) {
 	$osrsHandler = processOpenSRS ($formFormat, $callstring);
 
 	// Print out the results
-	echo (" In: ". $callstring ."<br>");
-	echo ("Out: ". $osrsHandler->response['Formatted']);
+	echo (" In: ". $callstring ."<br/>");
+	echo ("response['Formatted']: ". $osrsHandler->response['Formatted'] . "<br/>");
+	echo ("response['FullFormatted']: ". $osrsHandler->response['FullFormatted'] . "<br/>");
 
 } else {
 	// Format

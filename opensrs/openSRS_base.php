@@ -63,18 +63,31 @@ class openSRS_base {
 			die();
 		}
 	}
-
+	
+	/**
+	 * Method to send a command to the server
+	 *
+	 * @param 	string 	$format Encode format json/yaml
+	 * @param   array   $cmd    Contains request Array Hash
+	 *
+	 * @return 	array 	API response 
+	 *  
+	 * @since   3.5
+	 */
 	public function call($format, $cmd) {
 
 		$xmlCMD = $this->_opsHandler->encode($cmd);					// Flip Array to XML
 		$XMLresult = $this->send_cmd($xmlCMD);						// Send XML
 		$arrayResult = $this->_opsHandler->decode($XMLresult);		// Flip XML to Array
 
+		$arrayResultAttributes = array();
+		if (!empty($arrayResult['attributes'])) $arrayResultAttributes = $arrayResult['attributes'];
+		
 		return array(
 		    "FullRaw" => $arrayResult,
-		    "Raw" => $arrayResult['attributes'],
+		    "Raw" => $arrayResultAttributes,
 		    "FullFormatted" => convertArray2Formatted ($format, $arrayResult),
-		    "Formatted" => convertArray2Formatted ($format, $arrayResult['attributes'])
+		    "Formatted" => convertArray2Formatted ($format, $arrayResultAttributes)
 		);
 	}
 	/**
