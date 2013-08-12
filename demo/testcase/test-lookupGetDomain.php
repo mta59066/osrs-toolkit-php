@@ -28,7 +28,7 @@ if (isSet($_POST['function'])) {
 
 	// Open SRS Call -> Result
 	require_once dirname(__FILE__) . "/../..//opensrs/openSRS_loader.php";
-	$osrsHandler = processOpenSRS ($formFormat, $callstring);
+	$osrsHandler = lookupGetDomain::call($formFormat, $callstring);
 
 	// Print out the results
 	echo (" In: ". $callstring ."<br/>");

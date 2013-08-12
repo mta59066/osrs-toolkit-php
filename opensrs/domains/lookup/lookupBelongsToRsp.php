@@ -7,10 +7,6 @@
 class lookupBelongsToRsp extends openSRS_base {
 	private $_dataObject;
 	private $_formatHolder = "";
-	public $resultFullRaw;
-	public $resultRaw;
-	public $resultFullFormatted;
-	public $resultFormatted;
 
 	public function __construct ($formatString, $dataObject) {
 		parent::__construct();
@@ -27,14 +23,12 @@ class lookupBelongsToRsp extends openSRS_base {
 	private function _validateObject (){
 		$allPassed = true;
 
-		if (!isSet($this->_dataObject->data->domain)) {
+		if (empty($this->_dataObject->data->domain)) {
 			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 
-		// Run the command
 		if ($allPassed) {
-			// Execute the command
 			$this->_processRequest ();
 		} else {
 			trigger_error ("oSRS Error - Incorrect call.", E_USER_WARNING);

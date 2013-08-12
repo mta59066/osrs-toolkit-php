@@ -8,6 +8,11 @@ class lookupGetDomain extends openSRS_base {
 	private $_dataObject;
 	private $_formatHolder = "";
 
+	function call($format, $data) {
+		$this->_dataObject = $data;
+		$this->_formatHolder = $format;
+		$this->_processRequest();
+	}
 	public function __construct ($formatString, $dataObject) {
 		parent::__construct();
 		$this->_dataObject = $dataObject;
@@ -54,11 +59,11 @@ class lookupGetDomain extends openSRS_base {
 		if (!empty($this->_dataObject->data->registrant_ip)) $cmd['registrant_ip'] = $this->_dataObject->data->registrant_ip;
 				
 		// Command optional values
-		if (isSet($this->_dataObject->data->limit) && $this->_dataObject->data->limit != "") $cmd['attributes']['limit'] = $this->_dataObject->data->limit;
-		if (isSet($this->_dataObject->data->page) && $this->_dataObject->data->page != "") $cmd['attributes']['page'] = $this->_dataObject->data->page;
-		if (isSet($this->_dataObject->data->max_to_expiry) && $this->_dataObject->data->max_to_expiry != "") $cmd['attributes']['max_to_expiry'] = $this->_dataObject->data->max_to_expiry;
-		if (isSet($this->_dataObject->data->min_to_expiry) && $this->_dataObject->data->min_to_expiry != "") $cmd['attributes']['min_to_expiry'] = $this->_dataObject->data->min_to_expiry;
+		if (!empty($this->_dataObject->data->limit)) $cmd['attributes']['limit'] = $this->_dataObject->data->limit;
+		if (!empty($this->_dataObject->data->page)) $cmd['attributes']['page'] = $this->_dataObject->data->page;
+		if (!empty($this->_dataObject->data->max_to_expiry)) $cmd['attributes']['max_to_expiry'] = $this->_dataObject->data->max_to_expiry;
+		if (!empty($this->_dataObject->data->min_to_expiry)) $cmd['attributes']['min_to_expiry'] = $this->_dataObject->data->min_to_expiry;
 		
-		$this->response = $this->call($this->_formatHolder, $cmd);
+		$this->response = openSRS_base::call($this->_formatHolder, $cmd);
 	}
 }
