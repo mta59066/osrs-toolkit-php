@@ -38,12 +38,12 @@ class cookieUpdate extends openSRS_base {
 		}
 		
 		if (!isSet($this->_dataObject->data->domain)) {
-			trigger_error ("oSRS Error - Existing domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Existing domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 
 		if (!isSet($this->_dataObject->data->domain_new)) {
-			trigger_error ("oSRS Error - New domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - New domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 

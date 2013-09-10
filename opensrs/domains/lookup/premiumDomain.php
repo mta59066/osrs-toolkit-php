@@ -35,7 +35,7 @@ class premiumDomain extends openSRS_base {
 			// Grab domain name
 			$domain = $this->_dataObject->data->domain;
 		} else {
-			trigger_error ("oSRS Error - Search domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 

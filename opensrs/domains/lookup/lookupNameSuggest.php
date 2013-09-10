@@ -40,7 +40,7 @@ class lookupNameSuggest extends openSRS_base {
 			$tdom = explode (".", $tdomain);
 			$domain = $tdom[0];
 		} else {
-			trigger_error ("oSRS Error - Search domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 		

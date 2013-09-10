@@ -1,4 +1,4 @@
-<?
+<?php
 $callArray = array (
 	"func" => "premiumDomain",
 	//"func" => "allinone",

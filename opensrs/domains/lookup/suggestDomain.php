@@ -36,7 +36,7 @@ class suggestDomain extends openSRS_base {
 			$domain = $this->_dataObject->data->domain;
 			// $domain = htmlspecialchars($domain);
 		} else {
-			trigger_error ("oSRS Error - Search domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 

@@ -34,7 +34,7 @@ class fastDomainLookup extends openSRS_fastlookup {
 			// Grab domain name
 			$domain = $this->_dataObject->data->domain;
 		} else {
-			trigger_error ("oSRS Error - Search domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 
@@ -54,7 +54,7 @@ class fastDomainLookup extends openSRS_fastlookup {
 				$allPassed = false;
 			}
 		} else {
-			trigger_error ("oSRS Error - All domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - All domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 

@@ -38,7 +38,7 @@ class cookieSet extends openSRS_base {
 		}
 		
 		if (!isSet($this->_dataObject->data->domain)) {
-			trigger_error ("oSRS Error - Search domain strinng not defined.", E_USER_WARNING);
+			trigger_error ("oSRS Error - Search domain string not defined.", E_USER_WARNING);
 			$allPassed = false;
 		}
 

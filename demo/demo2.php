@@ -1,4 +1,4 @@
-<?
+<?php
 $callArray = array (
         "func" => "subresGet",
         "data" => array (
